@@ -1,9 +1,18 @@
 import React, {Component} from 'react';
 import {Text, Input, Button} from '@chakra-ui/core';
+import {connect} from 'react-redux';
 
-import ListItems from './ListItems';
+import ListItem from './../components/ListItem';
+
+const backgroundStyling = {
+    display: "flex",
+    flexDirection: "column",
+    width: "50%",
+    margin: "0 auto",
+}
 
 class ToDoList extends Component {
+
     render() {
         return(
             <div>
@@ -19,18 +28,45 @@ class ToDoList extends Component {
                         margin="8px 1px"
                         position="relative"
                         left="4px"
+                        onChange={event => this.props.onEnterNewTaskText(event.target.value)}
                     />
                     <Button
                         variantColor="pink"
                         margin="8px 1px"
                         position="relative"
                         left="4px"
+                        onClick={this.props.onAddTask}
                     >Add Task</Button>
                 </div>
-                <ListItems />
+                <hr style={{margin: "8px", marginBottom: "10px"}}/>
+                <div style={{...backgroundStyling}}>
+                    {this.props.list.map(listItem => (
+                        <ListItem 
+                            key={listItem.key} 
+                            text={listItem.text}
+                            done={listItem.done}
+                        />
+                    ))}
+                </div>
             </div>
         );
     };
 }
 
-export default ToDoList;
+const mapStateToProps = state => {
+    return {
+        newText: state.newTaskText,
+        list: state.taskList
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onEnterNewTaskText: (text) => dispatch({type: "ENTER_NEW_TASK_TEXT", newText: text}),
+        onAddTask: () => dispatch({type: "ADD_TASK"}),
+        onDeleteTask: (id) => dispatch({type: "DELETE_TASK", taskId: id}),
+        onClickCheckbox: (id) => dispatch({type: 'CLICK_CHECKBOX', taskId: id})
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);

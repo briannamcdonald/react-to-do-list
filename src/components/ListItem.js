@@ -20,6 +20,8 @@ const ListItem = (props) => (
             size="lg"
             margin="6px auto 6px 20px"
             paddingRight="6px"
+            isChecked={props.done}
+            onChange={() => console.log('')}
         ></Checkbox>
         <Text
             color="gray.800"
