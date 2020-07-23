@@ -3,6 +3,7 @@ import {Text, Input, Button} from '@chakra-ui/core';
 import {connect} from 'react-redux';
 
 import ListItem from './../components/ListItem';
+import * as actionTypes from './../store/actions';
 
 const backgroundStyling = {
     display: "flex",
@@ -62,10 +63,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onEnterNewTaskText: (text) => dispatch({type: "ENTER_NEW_TASK_TEXT", newText: text}),
-        onAddTask: () => dispatch({type: "ADD_TASK"}),
-        onDeleteTask: (id) => dispatch({type: "DELETE_TASK", taskId: id}),
-        onClickCheckbox: (id) => dispatch({type: 'CLICK_CHECKBOX', taskId: id})
+        onEnterNewTaskText: (text) => dispatch({type: actionTypes.ENTER_NEW_TASK_TEXT, newText: text}),
+        onAddTask: () => dispatch({type: actionTypes.ADD_TASK}),
+        onDeleteTask: (id) => dispatch({type: actionTypes.DELETE_TASK, taskId: id}),
+        onClickCheckbox: (id) => dispatch({type: actionTypes.CLICK_CHECKBOX, taskId: id})
     };
 };
 
