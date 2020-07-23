@@ -29,6 +29,7 @@ class ToDoList extends Component {
                         margin="8px 1px"
                         position="relative"
                         left="4px"
+                        value={this.props.newText}
                         onChange={event => this.props.onEnterNewTaskText(event.target.value)}
                     />
                     <Button
@@ -65,8 +66,6 @@ const mapDispatchToProps = dispatch => {
     return {
         onEnterNewTaskText: (text) => dispatch({type: actionTypes.ENTER_NEW_TASK_TEXT, newText: text}),
         onAddTask: () => dispatch({type: actionTypes.ADD_TASK}),
-        onDeleteTask: (id) => dispatch({type: actionTypes.DELETE_TASK, taskId: id}),
-        onClickCheckbox: (id) => dispatch({type: actionTypes.CLICK_CHECKBOX, taskId: id})
     };
 };
 
