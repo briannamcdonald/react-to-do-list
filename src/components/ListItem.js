@@ -26,7 +26,7 @@ class ListItem extends Component {
                     margin="6px auto 6px 20px"
                     paddingRight="6px"
                     isChecked={this.props.done}
-                    onChange={() => console.log('')}
+                    onChange={() => this.props.onClickCheckbox(this.props.id)}
                 ></Checkbox>
                 <Text
                     color="gray.800"
@@ -40,6 +40,7 @@ class ListItem extends Component {
                     aria-label="Delete item"
                     icon="delete"
                     margin="6px 20px 6px auto"
+                    onClick={() => this.props.onDeleteTask(this.props.id)}
                 />
             </div>
         );

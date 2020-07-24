@@ -45,6 +45,7 @@ class ToDoList extends Component {
                     {this.props.list.map(listItem => (
                         <ListItem 
                             key={listItem.key} 
+                            id={listItem.id}
                             text={listItem.text}
                             done={listItem.done}
                         />

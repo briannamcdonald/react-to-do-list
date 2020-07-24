@@ -2,7 +2,7 @@ import * as actionTypes from '../store/actions';
 
 const initialState = {
     newTaskText: "",
-    taskList: [{key: 1, text: "item1", done: true}, {key: 2, text: "item2", done: false}]
+    taskList: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,7 +16,8 @@ const reducer = (state = initialState, action) => {
             return {
                 newTaskText: "",
                 taskList: state.taskList.concat({
-                    key: new Date(), 
+                    key: new Date(),
+                    id: new Date(),
                     text: state.newTaskText,
                     done: false
                 })
@@ -28,9 +29,11 @@ const reducer = (state = initialState, action) => {
                 taskList: updatedTaskList
             };
         case actionTypes.CLICK_CHECKBOX:
-            return {
-
-            }
+            return state;
+            //create new list item
+            //splice it into before the clicked element and after
+            //for the clicked element return a new element thats the same except
+            //the done property is chamged to the opposite of before
         default:
             return state;
     }
