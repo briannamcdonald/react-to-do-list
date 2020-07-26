@@ -29,11 +29,23 @@ const reducer = (state = initialState, action) => {
                 taskList: updatedTaskList
             };
         case actionTypes.CLICK_CHECKBOX:
-            return state;
-            //create new list item
-            //splice it into before the clicked element and after
-            //for the clicked element return a new element thats the same except
-            //the done property is chamged to the opposite of before
+            // find the item in the list that matches the id given
+            const item = state.taskList.find(listItem => listItem.id === action.taskId);
+            // find the index of that item
+            const index = state.taskList.indexOf(item);
+            // update the done property of the item to be opposite to what it was before
+            const newTaskList = [
+                ...state.taskList.slice(0, index),
+                {
+                    ...state.taskList[index],
+                    done: !state.taskList[index].done,
+                },
+                ...state.taskList.slice(index + 1)
+            ]
+            return {
+                ...state,
+                taskList: newTaskList
+            }
         default:
             return state;
     }

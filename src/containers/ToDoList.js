@@ -8,7 +8,7 @@ import * as actionTypes from './../store/actions';
 const backgroundStyling = {
     display: "flex",
     flexDirection: "column",
-    width: "50%",
+    width: "85%",
     margin: "0 auto",
 }
 
@@ -16,15 +16,27 @@ class ToDoList extends Component {
 
     render() {
         return(
-            <div>
+            <div style={{
+                    backgroundColor: "#FFFACD", 
+                    width: "45%", 
+                    height: "100%", 
+                    borderRadius: "8px",
+                    position: "absolute",
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    margin: "8px 0",
+                    border: "4px solid pink"
+                }}>
                 <b><Text
                     color="gray.700"
                     fontSize="3xl"
+                    fontFamily="Trebuchet MS"
                     margin="8px"
                 >To-Do List</Text></b>
-                <div style={{display: "flex", flexDirection: "row", width: "50%", margin: "0 auto"}}>
+                <div style={{display: "flex", flexDirection: "row", width: "85%", margin: "0 auto"}}>
                     <Input 
-                        placeholder="Enter new task..."
+                        placeholder="Enter a new task..."
                         focusBorderColor="pink.300"
                         margin="8px 1px"
                         position="relative"
@@ -37,10 +49,16 @@ class ToDoList extends Component {
                         margin="8px 1px"
                         position="relative"
                         left="4px"
+                        _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
                         onClick={this.props.onAddTask}
                     >Add Task</Button>
                 </div>
-                <hr style={{margin: "8px", marginBottom: "10px"}}/>
+                <hr style={{
+                    borderWidth: "1px",
+                    margin: "8px", 
+                    marginBottom: "10px", 
+                    borderColor: "#D6BCFA"}}
+                />
                 <div style={{...backgroundStyling}}>
                     {this.props.list.map(listItem => (
                         <ListItem 

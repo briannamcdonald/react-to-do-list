@@ -22,17 +22,20 @@ class ListItem extends Component {
             <div style={{...backgroundStyling}}>
                 <Checkbox
                     variantColor="pink"
+                    borderColor="pink.500"
                     size="lg"
                     margin="6px auto 6px 20px"
                     paddingRight="6px"
                     isChecked={this.props.done}
                     onChange={() => this.props.onClickCheckbox(this.props.id)}
+                    // onFocus={() => boxShadow="0 0 0 3px #D6BCFA"}
                 ></Checkbox>
                 <Text
                     color="gray.800"
                     fontSize="lg"
+                    fontFamily="Trebuchet MS"
                     margin="6px auto"
-                    isTruncated
+                    overflowWrap="break-word"
                 >{this.props.text}</Text>
                 <IconButton 
                     variantColor="pink"
@@ -41,6 +44,7 @@ class ListItem extends Component {
                     icon="delete"
                     margin="6px 20px 6px auto"
                     onClick={() => this.props.onDeleteTask(this.props.id)}
+                    _focus={{boxShadow: "0 0 0 3px #D6BCFA"}}
                 />
             </div>
         );
