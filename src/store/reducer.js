@@ -2,7 +2,8 @@ import * as actionTypes from '../store/actions';
 
 const initialState = {
     newTaskText: "",
-    taskList: []
+    taskList: [],
+    visibleTaskList: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -45,6 +46,23 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 taskList: newTaskList
+            }
+        case actionTypes.CLICK_TO_DO:
+            const updatedVisibleTaskList = state.taskList.filter(task => task.done !== true);
+            return {
+                ...state,
+                visibleTaskList: updatedVisibleTaskList
+            }
+        case actionTypes.CLICK_DONE:
+            const newVisibleTaskList = state.taskList.filter(task => task.done === true);
+            return {
+                ...state,
+                visibleTaskList: newVisibleTaskList
+            }
+        case actionTypes.CLICK_ALL:
+            return {
+                ...state,
+                visibleTaskList: state.taskList
             }
         default:
             return state;

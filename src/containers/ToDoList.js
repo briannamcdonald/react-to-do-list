@@ -3,6 +3,7 @@ import {Text, Input, Button} from '@chakra-ui/core';
 import {connect} from 'react-redux';
 
 import ListItem from './../components/ListItem';
+import CategoryButtons from './../components/CategoryButtons';
 import * as actionTypes from './../store/actions';
 
 const backgroundStyling = {
@@ -49,8 +50,8 @@ class ToDoList extends Component {
                         margin="8px 1px"
                         position="relative"
                         left="4px"
-                        _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
                         onClick={this.props.onAddTask}
+                        _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
                     >Add Task</Button>
                 </div>
                 <hr style={{
@@ -60,7 +61,8 @@ class ToDoList extends Component {
                     borderColor: "#D6BCFA"}}
                 />
                 <div style={{...backgroundStyling}}>
-                    {this.props.list.map(listItem => (
+                    <CategoryButtons />
+                    {this.props.visibleList.map(listItem => (
                         <ListItem 
                             key={listItem.key} 
                             id={listItem.id}
@@ -77,7 +79,8 @@ class ToDoList extends Component {
 const mapStateToProps = state => {
     return {
         newText: state.newTaskText,
-        list: state.taskList
+        list: state.taskList,
+        visibleList: state.visibleTaskList
     };
 };
 
