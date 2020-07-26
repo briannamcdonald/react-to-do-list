@@ -1,0 +1,4 @@
+export const ENTER_NEW_TASK_TEXT = 'ENTER_NEW_TASK_TEXT';
+export const ADD_TASK = 'ADD_TASK';
+export const DELETE_TASK = 'DELETE_TASK';
+export const CLICK_CHECKBOX = 'CLICK_CHECKBOX';
