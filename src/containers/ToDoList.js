@@ -15,6 +15,20 @@ const backgroundStyling = {
 
 class ToDoList extends Component {
 
+    /*  Checks if doneList, toDoList, and visibleList are all undefined and if so,
+        then maps from the allList instead. This is done to avoid errors when the
+        app first starts up.  */
+    getList = () => {
+        let list = [];
+        if(!(this.props.doneList && this.props.toDoList && this.props.visibleList)) {
+            list = this.props.allList;
+        }
+        else {
+            list = this.props.visibleList;
+        }
+        return list;
+    }
+
     render() {
         return(
             <div style={{
@@ -58,11 +72,11 @@ class ToDoList extends Component {
                     borderWidth: "1px",
                     margin: "8px", 
                     marginBottom: "10px", 
-                    borderColor: "#D6BCFA"}}
+                    borderColor: "pink"}}
                 />
                 <div style={{...backgroundStyling}}>
                     <CategoryButtons />
-                    {this.props.visibleList.map(listItem => (
+                    {this.getList().map(listItem => (
                         <ListItem 
                             key={listItem.key} 
                             id={listItem.id}
@@ -79,7 +93,9 @@ class ToDoList extends Component {
 const mapStateToProps = state => {
     return {
         newText: state.newTaskText,
-        list: state.taskList,
+        allList: state.allTaskList,
+        toDoList: state.toDoTaskList,
+        doneList: state.doneTaskList,
         visibleList: state.visibleTaskList
     };
 };

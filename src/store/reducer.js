@@ -2,7 +2,9 @@ import * as actionTypes from '../store/actions';
 
 const initialState = {
     newTaskText: "",
-    taskList: [],
+    allTaskList: [],
+    toDoTaskList: [],
+    doneTaskList: [],
     visibleTaskList: []
 }
 
@@ -16,7 +18,13 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_TASK:
             return {
                 newTaskText: "",
-                taskList: state.taskList.concat({
+                allTaskList: state.allTaskList.concat({
+                    key: new Date(),
+                    id: new Date(),
+                    text: state.newTaskText,
+                    done: false
+                }),
+                toDoTaskList: state.toDoTaskList.concat({
                     key: new Date(),
                     id: new Date(),
                     text: state.newTaskText,
@@ -24,45 +32,87 @@ const reducer = (state = initialState, action) => {
                 })
             };
         case actionTypes.DELETE_TASK:
-            const updatedTaskList = state.taskList.filter(task => task.id !== action.taskId);
+            //store the item
+            const deletedItem = state.allTaskList.find(listItem => listItem.id === action.taskId);
+
+            //remove it from allTaskList
+            const updatedAllTaskList = state.allTaskList.filter(task => task.id !== action.taskId);
+
+            //if item is done, remove it from doneTaskList. else, remove it from toDoTaskList
+            let updatedDoneTaskList = state.doneTaskList;
+            let updatedToDoTaskList = state.toDoTaskList;
+            if(deletedItem.done) {
+                updatedDoneTaskList = state.doneTaskList.filter(task => task.id !== action.taskId);
+            }
+            else {
+                updatedToDoTaskList = state.toDoTaskList.filter(task => task.id !== action.taskId);
+            }
             return {
                 ...state,
-                taskList: updatedTaskList
+                allTaskList: updatedAllTaskList,
+                toDoTaskList: updatedToDoTaskList,
+                doneTaskList: updatedDoneTaskList
             };
         case actionTypes.CLICK_CHECKBOX:
             // find the item in the list that matches the id given
-            const item = state.taskList.find(listItem => listItem.id === action.taskId);
+            const item = state.allTaskList.find(listItem => listItem.id === action.taskId);
+
             // find the index of that item
-            const index = state.taskList.indexOf(item);
-            // update the done property of the item to be opposite to what it was before
+            const index = state.allTaskList.indexOf(item);
+
+            // update the done property of the item to be opposite to what it was before in the allTaskList
             const newTaskList = [
-                ...state.taskList.slice(0, index),
+                ...state.allTaskList.slice(0, index),
                 {
-                    ...state.taskList[index],
-                    done: !state.taskList[index].done,
+                    ...state.allTaskList[index],
+                    done: !state.allTaskList[index].done,
                 },
-                ...state.taskList.slice(index + 1)
+                ...state.allTaskList.slice(index + 1)
             ]
+
+            //if the task is being marked as done add it to doneTaskList and remove it from toDoTaskList
+            let newToDoTaskList = [];
+            let newDoneTaskList = [];
+            if(!state.allTaskList[index].done) {
+                if(!(state.doneTaskList)) {
+                    newDoneTaskList = [{...item, done: true}]
+                }
+                else {
+                    newDoneTaskList = state.doneTaskList.concat({...item, done: true});
+                }
+                newToDoTaskList = state.toDoTaskList.filter(task => task.id !== action.taskId);
+            }
+            //else add it to the toDoTaskList and remove it from doneTaskList
+            else {
+                if(!(state.toDoTaskList)) {
+                    newToDoTaskList = [{...item, done: false}]
+                }
+                else {
+                    newToDoTaskList = state.toDoTaskList.concat({...item, done: false});
+                }
+                newDoneTaskList = state.doneTaskList.filter(task => task !== item);
+            }
+
             return {
                 ...state,
-                taskList: newTaskList
+                allTaskList: newTaskList,
+                toDoTaskList: newToDoTaskList,
+                doneTaskList: newDoneTaskList
             }
         case actionTypes.CLICK_TO_DO:
-            const updatedVisibleTaskList = state.taskList.filter(task => task.done !== true);
             return {
                 ...state,
-                visibleTaskList: updatedVisibleTaskList
+                visibleTaskList: state.toDoTaskList
             }
         case actionTypes.CLICK_DONE:
-            const newVisibleTaskList = state.taskList.filter(task => task.done === true);
             return {
                 ...state,
-                visibleTaskList: newVisibleTaskList
+                visibleTaskList: state.doneTaskList
             }
         case actionTypes.CLICK_ALL:
             return {
                 ...state,
-                visibleTaskList: state.taskList
+                visibleTaskList: state.allTaskList
             }
         default:
             return state;
