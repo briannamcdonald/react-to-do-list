@@ -3,6 +3,7 @@ import {Text, Input, Button} from '@chakra-ui/core';
 import {connect} from 'react-redux';
 
 import ListItem from './../components/ListItem';
+import CategoryButtons from './../components/CategoryButtons';
 import * as actionTypes from './../store/actions';
 
 const backgroundStyling = {
@@ -13,6 +14,19 @@ const backgroundStyling = {
 }
 
 class ToDoList extends Component {
+
+    /*  Checks if visibleList is undefined and if so, maps from the allList instead. 
+        This is done to avoid errors when the app first starts up.  */
+    getList = () => {
+        let list = [];
+        if(!this.props.visibleList) {
+            list = this.props.allList;
+        }
+        else {
+            list = this.props.visibleList;
+        }
+        return list;
+    }
 
     render() {
         return(
@@ -49,18 +63,19 @@ class ToDoList extends Component {
                         margin="8px 1px"
                         position="relative"
                         left="4px"
-                        _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
                         onClick={this.props.onAddTask}
+                        _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
                     >Add Task</Button>
                 </div>
                 <hr style={{
                     borderWidth: "1px",
                     margin: "8px", 
                     marginBottom: "10px", 
-                    borderColor: "#D6BCFA"}}
+                    borderColor: "pink"}}
                 />
                 <div style={{...backgroundStyling}}>
-                    {this.props.list.map(listItem => (
+                    <CategoryButtons />
+                    {this.getList().map(listItem => (
                         <ListItem 
                             key={listItem.key} 
                             id={listItem.id}
@@ -77,7 +92,8 @@ class ToDoList extends Component {
 const mapStateToProps = state => {
     return {
         newText: state.newTaskText,
-        list: state.taskList
+        allList: state.allTaskList,
+        visibleList: state.visibleTaskList
     };
 };
 
