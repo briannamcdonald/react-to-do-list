@@ -15,12 +15,11 @@ const backgroundStyling = {
 
 class ToDoList extends Component {
 
-    /*  Checks if doneList, toDoList, and visibleList are all undefined and if so,
-        then maps from the allList instead. This is done to avoid errors when the
-        app first starts up.  */
+    /*  Checks if visibleList is undefined and if so, maps from the allList instead. 
+        This is done to avoid errors when the app first starts up.  */
     getList = () => {
         let list = [];
-        if(!(this.props.doneList && this.props.toDoList && this.props.visibleList)) {
+        if(!this.props.visibleList) {
             list = this.props.allList;
         }
         else {
@@ -94,8 +93,6 @@ const mapStateToProps = state => {
     return {
         newText: state.newTaskText,
         allList: state.allTaskList,
-        toDoList: state.toDoTaskList,
-        doneList: state.doneTaskList,
         visibleList: state.visibleTaskList
     };
 };
