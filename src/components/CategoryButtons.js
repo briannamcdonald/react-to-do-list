@@ -20,7 +20,7 @@ class CategoryButtons extends Component {
         return (
             <div style={{...divStyling}} >
                 <Button
-                    variantColor="pink"
+                    variantColor={this.props.currentCol === "to do" ? "purple" : "pink"}
                     width="33%"
                     margin="2px"
                     leftIcon="calendar"
@@ -29,7 +29,7 @@ class CategoryButtons extends Component {
                     To Do
                 </Button>
                 <Button
-                    variantColor="pink"
+                    variantColor={this.props.currentCol === "done" ? "purple" : "pink"}
                     width="33%"
                     margin="2px"
                     leftIcon="check-circle"
@@ -38,7 +38,7 @@ class CategoryButtons extends Component {
                     Done
                 </Button>
                 <Button
-                    variantColor="pink"
+                    variantColor={this.props.currentCol === "all" ? "purple" : "pink"}
                     width="33%"
                     margin="2px"
                     leftIcon={FaListUl}
@@ -53,8 +53,9 @@ class CategoryButtons extends Component {
 
 const mapStateToProps = state => {
     return {
-        list: state.taskList,
-        visibleList: state.visibleList
+        currentCol: state.currentColumn,
+        list: state.allTaskList,
+        visibleList: state.visibleTaskList
     };
 };
 

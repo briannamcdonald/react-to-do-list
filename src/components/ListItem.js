@@ -53,7 +53,7 @@ class ListItem extends Component {
 
 const mapStateToProps = state => {
     return {
-        list: state.taskList
+        list: state.allTaskList
     };
 };
 
