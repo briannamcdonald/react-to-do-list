@@ -1,7 +1,7 @@
 body {
   background-color: lavender;
   height: 100%;
-  /* background-image: url('./images/background.jpg'); */
+  background-image: url('./images/background.jpg');
 }
 
 .App {

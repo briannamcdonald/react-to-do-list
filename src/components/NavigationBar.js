@@ -1,8 +1,12 @@
 import React from 'react';
-import {IconButton, Button, Flex} from '@chakra-ui/core';
+import {IconButton, Button, Flex, useColorMode} from '@chakra-ui/core';
 import {GoMarkGithub} from 'react-icons/go';
+import {FaHeart} from 'react-icons/fa';
 
 const NavigationBar = () => {
+
+    const {colorMode, toggleColorMode} = useColorMode();
+
     return(
         <Flex
             flexDirection="row"
@@ -12,10 +16,11 @@ const NavigationBar = () => {
             padding="6px" >
             <Button
                 variantColor="purple"
-                leftIcon="moon"
+                leftIcon={colorMode === "light" ? "moon" : FaHeart}
                 size="sm"
                 marginLeft="auto"
-            >Dark Mode</Button>
+                onClick={toggleColorMode}
+            >{colorMode === "light" ? "Dark" : "Pink"} Mode</Button>
             <IconButton
                 variantColor="pink"
                 icon={GoMarkGithub}
