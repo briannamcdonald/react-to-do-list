@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Text, Input, Button, Flex} from '@chakra-ui/core';
 import {connect} from 'react-redux';
 
+import * as actionTypes from './../store/actions';
+
 class TitleAndInput extends Component {
     render() {
         return(

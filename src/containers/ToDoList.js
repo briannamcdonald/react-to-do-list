@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {Text, Input, Button, Flex} from '@chakra-ui/core';
+import {Text, Flex} from '@chakra-ui/core';
 import {connect} from 'react-redux';
 
 import NavigationBar from './../components/NavigationBar';
 import ListItem from './../components/ListItem';
 import CategoryButtons from './../components/CategoryButtons';
-import * as actionTypes from './../store/actions';
+import TitleAndInput from './TitleAndInput';
 
 const backgroundStyling = {
     backgroundColor: "#FFFACD", 
@@ -40,40 +40,7 @@ class ToDoList extends Component {
             <div>
                 <NavigationBar />
                 <div style={{...backgroundStyling}}>
-                    <b><Text
-                        color="gray.700"
-                        fontSize="3xl"
-                        fontFamily="Trebuchet MS"
-                        margin="8px"
-                    >To-Do List</Text></b>
-                    <Flex
-                        flexDirection="row"
-                        width="85%"
-                        margin="0 auto" >
-                        <Input 
-                            placeholder="Enter a new task..."
-                            focusBorderColor="pink.300"
-                            margin="8px 1px"
-                            position="relative"
-                            left="4px"
-                            value={this.props.newText}
-                            onChange={event => this.props.onEnterNewTaskText(event.target.value)}
-                        />
-                        <Button
-                            variantColor="pink"
-                            margin="8px 1px"
-                            position="relative"
-                            left="4px"
-                            onClick={this.props.onAddTask}
-                            _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
-                        >Add Task</Button>
-                    </Flex>
-                    <hr style={{
-                        borderWidth: "1px",
-                        margin: "8px", 
-                        marginBottom: "10px", 
-                        borderColor: "#FBB6CE"}}
-                    />
+                    <TitleAndInput />
                     <Flex
                         flexDirection="column"
                         width="85%"
@@ -108,17 +75,9 @@ class ToDoList extends Component {
 
 const mapStateToProps = state => {
     return {
-        newText: state.newTaskText,
         allList: state.allTaskList,
         visibleList: state.visibleTaskList
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onEnterNewTaskText: (text) => dispatch({type: actionTypes.ENTER_NEW_TASK_TEXT, newText: text}),
-        onAddTask: () => dispatch({type: actionTypes.ADD_TASK}),
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);
+export default connect(mapStateToProps)(ToDoList);
