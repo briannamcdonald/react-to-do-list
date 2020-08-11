@@ -1,50 +1,62 @@
 import React, {Component} from 'react';
-import {Text, Input, Button, Flex} from '@chakra-ui/core';
+import {Text, Input, Button, Flex, useColorMode} from '@chakra-ui/core';
 import {connect} from 'react-redux';
 
 import * as actionTypes from './../store/actions';
 
-class TitleAndInput extends Component {
-    render() {
-        return(
-            <div>
-                <b><Text
+const TitleAndInput = (props) => {
+
+    const {colorMode, toggleColorMode} = useColorMode();
+    const buttonBgColor = {light: "pink.500", dark: "gray.600"}
+    const buttonHoverColor = {light: "pink.600", dark: "gray.700"}
+    const buttonActiveColor = {light: "pink.300", dark: "gray.400"}
+    const textColor = {light: "gray.700", dark: "white"}
+    const inputFocusBorderColor = {light: "purple.300", dark: "cyan.600"}
+
+    return(
+        <div>
+            <b><Text
+                color={textColor[colorMode]}
+                fontSize="3xl"
+                fontFamily="Trebuchet MS"
+                margin="8px"
+            >To-Do List</Text></b>
+            <Flex
+                flexDirection="row"
+                width="85%"
+                margin="0 auto" >
+                <Input
+                    placeholder="Enter a new task..."
+                    backgroundColor="white"
+                    borderColor="gray.200"
                     color="gray.700"
-                    fontSize="3xl"
-                    fontFamily="Trebuchet MS"
-                    margin="8px"
-                >To-Do List</Text></b>
-                <Flex
-                    flexDirection="row"
-                    width="85%"
-                    margin="0 auto" >
-                    <Input 
-                        placeholder="Enter a new task..."
-                        focusBorderColor="pink.300"
-                        margin="8px 1px"
-                        position="relative"
-                        left="4px"
-                        value={this.props.newText}
-                        onChange={event => this.props.onEnterNewTaskText(event.target.value)}
-                    />
-                    <Button
-                        variantColor="pink"
-                        margin="8px 1px"
-                        position="relative"
-                        left="4px"
-                        onClick={this.props.onAddTask}
-                        _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
-                    >Add Task</Button>
-                </Flex>
-                <hr style={{
-                    borderWidth: "1px",
-                    margin: "8px", 
-                    marginBottom: "10px", 
-                    borderColor: "#FBB6CE"}}
+                    focusBorderColor={inputFocusBorderColor[colorMode]}
+                    margin="8px 1px"
+                    position="relative"
+                    left="4px"
+                    value={props.newText}
+                    onChange={event => props.onEnterNewTaskText(event.target.value)}
                 />
-            </div>
-        );
-    };
+                <Button
+                    backgroundColor={buttonBgColor[colorMode]}
+                    color="white"
+                    margin="8px 1px"
+                    position="relative"
+                    left="4px"
+                    onClick={props.onAddTask}
+                    _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
+                    _hover={{backgroundColor: buttonHoverColor[colorMode]}}
+                    _active={{backgroundColor: buttonActiveColor[colorMode]}}
+                >Add Task</Button>
+            </Flex>
+            <hr style={{
+                borderWidth: "1px",
+                margin: "8px", 
+                marginBottom: "10px", 
+                borderColor: "#FBB6CE"}}
+            />
+        </div>
+    );
 }
 
 const mapStateToProps = state => {
