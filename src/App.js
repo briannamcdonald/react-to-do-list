@@ -1,12 +1,13 @@
-import React from 'react';
-import './App.css';
-import {ThemeProvider, CSSReset} from '@chakra-ui/core';
+import React from "react";
+import "./App.css";
+import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import theme from "./theme";
 
-import ToDoList from './containers/ToDoList';
+import ToDoList from "./containers/ToDoList";
 
 function App() {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
       <CSSReset />
       <div className="App">
         <ToDoList />

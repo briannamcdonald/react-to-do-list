@@ -11,11 +11,13 @@ const TitleAndInput = (props) => {
       backgroundColor: "pink.500",
       _hover: { backgroundColor: "pink.600" },
       _active: { backgroundColor: "pink.300" },
+      _focus: { boxShadow: "0 0 0 2px #D6BCFA" },
     },
     dark: {
       backgroundColor: "gray.600",
       _hover: { backgroundColor: "gray.700" },
       _active: { backgroundColor: "gray.400" },
+      _focus: { boxShadow: "0 0 0 2px #00A3C4" },
     },
   };
 
@@ -23,7 +25,7 @@ const TitleAndInput = (props) => {
     <div>
       <b>
         <Text
-          color={colorMode === "light" ? "gray.700" : "white"}
+          color={colorMode === "light" ? "gray.700" : "gray.100"}
           fontSize="3xl"
           fontFamily="Trebuchet MS"
           margin="8px"
@@ -34,16 +36,18 @@ const TitleAndInput = (props) => {
       <Flex flexDirection="row" width="85%" margin="0 auto">
         <Input
           placeholder="Enter a new task..."
-          backgroundColor="white"
+          backgroundColor={colorMode === "light" ? "white" : "gray.100"}
           borderColor="gray.200"
           color="gray.700"
-          focusBorderColor={colorMode === "light" ? "purple.300" : "cyan.600"}
+          focusBorderColor={colorMode === "light" ? "purple.300" : "cyan.700"}
           margin="8px 1px"
           position="relative"
           left="4px"
           value={props.newText}
           onChange={(event) => props.onEnterNewTaskText(event.target.value)}
-          _placeholder={{ color: "gray.400" }}
+          _placeholder={{
+            color: colorMode === "light" ? "gray.400" : "gray.500",
+          }}
         />
         <Button
           color="white"
@@ -51,7 +55,6 @@ const TitleAndInput = (props) => {
           position="relative"
           left="4px"
           onClick={props.onAddTask}
-          _focus={{ boxShadow: "0 0 0 2px #D6BCFA" }}
           {...buttonColorModeStyling[colorMode]}
         >
           Add Task
@@ -62,7 +65,7 @@ const TitleAndInput = (props) => {
           borderWidth: "1px",
           margin: "8px",
           marginBottom: "10px",
-          borderColor: colorMode === "light" ? "#FBB6CE" : "#2D3748",
+          borderColor: colorMode === "light" ? "#FBB6CE" : "#4A5568",
         }}
       />
     </div>

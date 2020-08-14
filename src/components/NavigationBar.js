@@ -31,7 +31,7 @@ const NavigationBar = () => {
         {colorMode === "light" ? "Dark" : "Pink"} Mode
       </Button>
       <IconButton
-        backgroundColor={colorMode === "light" ? "pink.500" : "gray.600"}
+        backgroundColor={colorMode === "light" ? "pink.500" : "gray.500"}
         color="white"
         icon={GoMarkGithub}
         size="sm"
@@ -40,10 +40,10 @@ const NavigationBar = () => {
           window.open("https://github.com/briannamcdonald/react-to-do-list")
         }
         _hover={{
-          backgroundColor: colorMode === "light" ? "pink.600" : "gray.700",
+          backgroundColor: colorMode === "light" ? "pink.600" : "gray.600",
         }}
         _active={{
-          backgroundColor: colorMode === "light" ? "pink.300" : "gray.400",
+          backgroundColor: colorMode === "light" ? "pink.300" : "gray.300",
         }}
       ></IconButton>
     </Flex>

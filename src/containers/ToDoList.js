@@ -31,7 +31,7 @@ const ToDoList = (props) => {
     top: "50%",
     transform: "translate(-50%, -50%)",
     margin: "8px 0",
-    border: colorMode === "light" ? "4px solid #FBB6CE" : "4px solid #2D3748",
+    border: colorMode === "light" ? "4px solid #FBB6CE" : "4px solid #4A5568",
   };
 
   return (
@@ -48,7 +48,7 @@ const ToDoList = (props) => {
           >
             <Flex height="55vh" justifyContent="center" alignItems="center">
               <Text
-                color={colorMode === "light" ? "gray.700" : "white"}
+                color={colorMode === "light" ? "gray.700" : "gray.100"}
                 fontSize="xl"
                 fontFamily="Trebuchet MS"
               >
