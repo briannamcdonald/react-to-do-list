@@ -38,6 +38,7 @@ const reducer = (state = initialState, action) => {
             }
 
             return {
+                ...state,
                 newTaskText: "",
                 allTaskList: newAllTaskList,
                 visibleTaskList: newVisTaskList

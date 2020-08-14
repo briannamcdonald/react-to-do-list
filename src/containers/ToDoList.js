@@ -1,107 +1,80 @@
-import React, {Component} from 'react';
-import {Text, Input, Button} from '@chakra-ui/core';
-import {connect} from 'react-redux';
+import React, { Component } from "react";
+import { Text, Flex, useColorMode } from "@chakra-ui/core";
+import { connect } from "react-redux";
 
-import ListItem from './../components/ListItem';
-import CategoryButtons from './../components/CategoryButtons';
-import * as actionTypes from './../store/actions';
+import NavigationBar from "./../components/NavigationBar";
+import ListItem from "./../components/ListItem";
+import CategoryButtons from "./../components/CategoryButtons";
+import TitleAndInput from "./TitleAndInput";
 
-const backgroundStyling = {
-    display: "flex",
-    flexDirection: "column",
-    width: "85%",
-    margin: "0 auto",
-}
-
-class ToDoList extends Component {
-
-    /*  Checks if visibleList is undefined and if so, maps from the allList instead. 
+const ToDoList = (props) => {
+  /*  Checks if visibleList is undefined and if so, maps from the allList instead. 
         This is done to avoid errors when the app first starts up.  */
-    getList = () => {
-        let list = [];
-        if(!this.props.visibleList) {
-            list = this.props.allList;
-        }
-        else {
-            list = this.props.visibleList;
-        }
-        return list;
+  const getList = () => {
+    let list = [];
+    if (!props.visibleList) {
+      list = props.allList;
+    } else {
+      list = props.visibleList;
     }
+    return list;
+  };
 
-    render() {
-        return(
-            <div style={{
-                    backgroundColor: "#FFFACD", 
-                    width: "45%", 
-                    height: "100%", 
-                    borderRadius: "8px",
-                    position: "absolute",
-                    left: "50%",
-                    top: "50%",
-                    transform: "translate(-50%, -50%)",
-                    margin: "8px 0",
-                    border: "4px solid pink"
-                }}>
-                <b><Text
-                    color="gray.700"
-                    fontSize="3xl"
-                    fontFamily="Trebuchet MS"
-                    margin="8px"
-                >To-Do List</Text></b>
-                <div style={{display: "flex", flexDirection: "row", width: "85%", margin: "0 auto"}}>
-                    <Input 
-                        placeholder="Enter a new task..."
-                        focusBorderColor="pink.300"
-                        margin="8px 1px"
-                        position="relative"
-                        left="4px"
-                        value={this.props.newText}
-                        onChange={event => this.props.onEnterNewTaskText(event.target.value)}
-                    />
-                    <Button
-                        variantColor="pink"
-                        margin="8px 1px"
-                        position="relative"
-                        left="4px"
-                        onClick={this.props.onAddTask}
-                        _focus={{boxShadow: "0 0 0 2px #D6BCFA"}}
-                    >Add Task</Button>
-                </div>
-                <hr style={{
-                    borderWidth: "1px",
-                    margin: "8px", 
-                    marginBottom: "10px", 
-                    borderColor: "pink"}}
-                />
-                <div style={{...backgroundStyling}}>
-                    <CategoryButtons />
-                    {this.getList().map(listItem => (
-                        <ListItem 
-                            key={listItem.key} 
-                            id={listItem.id}
-                            text={listItem.text}
-                            done={listItem.done}
-                        />
-                    ))}
-                </div>
-            </div>
-        );
-    };
-}
+  const { colorMode } = useColorMode();
+  const backgroundStyling = {
+    backgroundColor: colorMode === "light" ? "#FFFACD" : "#1A202C",
+    width: "45%",
+    height: "100%",
+    borderRadius: "8px",
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+    margin: "8px 0",
+    border: colorMode === "light" ? "4px solid #FBB6CE" : "4px solid #4A5568",
+  };
 
-const mapStateToProps = state => {
-    return {
-        newText: state.newTaskText,
-        allList: state.allTaskList,
-        visibleList: state.visibleTaskList
-    };
+  return (
+    <div>
+      <NavigationBar />
+      <div style={{ ...backgroundStyling }}>
+        <TitleAndInput />
+        <Flex flexDirection="column" width="85%" margin="0 auto">
+          <CategoryButtons />
+          <div
+            style={{
+              display: props.allList.length === 0 ? "block" : "none",
+            }}
+          >
+            <Flex height="55vh" justifyContent="center" alignItems="center">
+              <Text
+                color={colorMode === "light" ? "gray.700" : "gray.100"}
+                fontSize="xl"
+                fontFamily="Trebuchet MS"
+              >
+                Start adding tasks!
+              </Text>
+            </Flex>
+          </div>
+          {getList().map((listItem) => (
+            <ListItem
+              key={listItem.key}
+              id={listItem.id}
+              text={listItem.text}
+              done={listItem.done}
+            />
+          ))}
+        </Flex>
+      </div>
+    </div>
+  );
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onEnterNewTaskText: (text) => dispatch({type: actionTypes.ENTER_NEW_TASK_TEXT, newText: text}),
-        onAddTask: () => dispatch({type: actionTypes.ADD_TASK}),
-    };
+const mapStateToProps = (state) => {
+  return {
+    allList: state.allTaskList,
+    visibleList: state.visibleTaskList,
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);
+export default connect(mapStateToProps)(ToDoList);
