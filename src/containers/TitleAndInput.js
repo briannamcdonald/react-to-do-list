@@ -43,6 +43,7 @@ const TitleAndInput = (props) => {
           left="4px"
           value={props.newText}
           onChange={(event) => props.onEnterNewTaskText(event.target.value)}
+          _placeholder={{ color: "gray.400" }}
         />
         <Button
           color="white"
@@ -61,7 +62,7 @@ const TitleAndInput = (props) => {
           borderWidth: "1px",
           margin: "8px",
           marginBottom: "10px",
-          borderColor: "#FBB6CE",
+          borderColor: colorMode === "light" ? "#FBB6CE" : "#2D3748",
         }}
       />
     </div>
