@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Text, Flex, useColorMode } from "@chakra-ui/core";
 import { connect } from "react-redux";
 

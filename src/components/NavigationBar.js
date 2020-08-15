@@ -27,6 +27,10 @@ const NavigationBar = () => {
         _active={{
           backgroundColor: colorMode === "light" ? "purple.300" : "cyan.500",
         }}
+        _focus={{
+          boxShadow:
+            colorMode === "light" ? "0 0 0 2px #D6BCFA" : "0 0 0 2px #00A3C4",
+        }}
       >
         {colorMode === "light" ? "Dark" : "Pink"} Mode
       </Button>
@@ -44,6 +48,10 @@ const NavigationBar = () => {
         }}
         _active={{
           backgroundColor: colorMode === "light" ? "pink.300" : "gray.300",
+        }}
+        _focus={{
+          boxShadow:
+            colorMode === "light" ? "0 0 0 2px #ED64A6" : "0 0 0 2px #A0AEC0",
         }}
       ></IconButton>
     </Flex>

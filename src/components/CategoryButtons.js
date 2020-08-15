@@ -49,7 +49,10 @@ const CategoryButtons = (props) => {
               ? selectedActiveColor[colorMode]
               : activeColor[colorMode],
         }}
-        _focus={{ boxShadow: "0 0 0 2px #D6BCFA" }}
+        _focus={{
+          boxShadow:
+            colorMode === "light" ? "0 0 0 2px #D6BCFA" : "0 0 0 2px #00A3C4",
+        }}
       >
         To Do
       </Button>
@@ -76,7 +79,10 @@ const CategoryButtons = (props) => {
               ? selectedActiveColor[colorMode]
               : activeColor[colorMode],
         }}
-        _focus={{ boxShadow: "0 0 0 2px #D6BCFA" }}
+        _focus={{
+          boxShadow:
+            colorMode === "light" ? "0 0 0 2px #D6BCFA" : "0 0 0 2px #00A3C4",
+        }}
       >
         Done
       </Button>
@@ -103,7 +109,10 @@ const CategoryButtons = (props) => {
               ? selectedActiveColor[colorMode]
               : activeColor[colorMode],
         }}
-        _focus={{ boxShadow: "0 0 0 2px #D6BCFA" }}
+        _focus={{
+          boxShadow:
+            colorMode === "light" ? "0 0 0 2px #D6BCFA" : "0 0 0 2px #00A3C4",
+        }}
       >
         All Tasks
       </Button>
