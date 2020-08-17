@@ -15,27 +15,27 @@ const NavigationBar = () => {
       padding="6px"
     >
       <Button
-        backgroundColor={colorMode === "light" ? "#6e3c65" : "cyan.700"}
+        backgroundColor={colorMode === "light" ? "violet.500" : "cyan.700"}
         color="white"
         leftIcon={colorMode === "light" ? "moon" : FaHeart}
         size="sm"
         marginLeft="auto"
         onClick={toggleColorMode}
         _hover={{
-          backgroundColor: colorMode === "light" ? "purple.600" : "cyan.800",
+          backgroundColor: colorMode === "light" ? "violet.600" : "cyan.800",
         }}
         _active={{
-          backgroundColor: colorMode === "light" ? "purple.300" : "cyan.500",
+          backgroundColor: colorMode === "light" ? "violet.300" : "cyan.500",
         }}
         _focus={{
           boxShadow:
-            colorMode === "light" ? "0 0 0 2px #D6BCFA" : "0 0 0 2px #00A3C4",
+            colorMode === "light" ? "0 0 0 2px #a88aa3" : "0 0 0 2px #00A3C4",
         }}
       >
         {colorMode === "light" ? "Dark" : "Pink"} Mode
       </Button>
       <IconButton
-        backgroundColor={colorMode === "light" ? "#535e49" : "gray.500"}
+        backgroundColor={colorMode === "light" ? "leafGreen.500" : "gray.500"}
         color="white"
         icon={GoMarkGithub}
         size="sm"
@@ -44,14 +44,14 @@ const NavigationBar = () => {
           window.open("https://github.com/briannamcdonald/react-to-do-list")
         }
         _hover={{
-          backgroundColor: colorMode === "light" ? "pink.600" : "gray.600",
+          backgroundColor: colorMode === "light" ? "leafGreen.600" : "gray.600",
         }}
         _active={{
-          backgroundColor: colorMode === "light" ? "pink.300" : "gray.300",
+          backgroundColor: colorMode === "light" ? "leafGreen.300" : "gray.300",
         }}
         _focus={{
           boxShadow:
-            colorMode === "light" ? "0 0 0 2px #ED64A6" : "0 0 0 2px #A0AEC0",
+            colorMode === "light" ? "0 0 0 2px #989e92" : "0 0 0 2px #A0AEC0",
         }}
       ></IconButton>
     </Flex>

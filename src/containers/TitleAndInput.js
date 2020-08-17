@@ -8,10 +8,10 @@ const TitleAndInput = (props) => {
   const { colorMode } = useColorMode();
   const buttonColorModeStyling = {
     light: {
-      backgroundColor: "#b06f8d",
-      _hover: { backgroundColor: "pink.600" },
-      _active: { backgroundColor: "pink.300" },
-      _focus: { boxShadow: "0 0 0 2px #D6BCFA" },
+      backgroundColor: "mauve.500",
+      _hover: { backgroundColor: "mauve.600" },
+      _active: { backgroundColor: "mauve.300" },
+      _focus: { boxShadow: "0 0 0 2px #d0a9bb" },
     },
     dark: {
       backgroundColor: "gray.600",
@@ -39,7 +39,7 @@ const TitleAndInput = (props) => {
           backgroundColor={colorMode === "light" ? "white" : "gray.100"}
           borderColor="gray.200"
           color="gray.700"
-          focusBorderColor={colorMode === "light" ? "purple.300" : "cyan.700"}
+          focusBorderColor={colorMode === "light" ? "violet.300" : "cyan.700"}
           margin="8px 1px"
           position="relative"
           left="4px"

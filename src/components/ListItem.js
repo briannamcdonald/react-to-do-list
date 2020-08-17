@@ -21,10 +21,10 @@ const ListItem = (props) => {
 
   const buttonColorModeStyling = {
     light: {
-      backgroundColor: "#535e49",
-      _hover: { backgroundColor: "pink.600" },
-      _active: { backgroundColor: "pink.300" },
-      _focus: { boxShadow: "0 0 0 2px #D6BCFA" },
+      backgroundColor: "leafGreen.500",
+      _hover: { backgroundColor: "leafGreen.600" },
+      _active: { backgroundColor: "leafGreen.300" },
+      _focus: { boxShadow: "0 0 0 2px #989e92" },
     },
     dark: {
       backgroundColor: "cyan.600",
@@ -45,7 +45,6 @@ const ListItem = (props) => {
         paddingRight="6px"
         isChecked={props.done}
         onChange={() => props.onClickCheckbox(props.id)}
-        // onFocus={() => boxShadow="0 0 0 3px #D6BCFA"}
       ></Checkbox>
       <Text
         color={colorMode === "light" ? "gray.800" : "white"}
