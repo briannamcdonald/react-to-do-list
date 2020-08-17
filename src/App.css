@@ -10,7 +10,10 @@ body {
 }
 
 .light-mode {
-  background-image: url("./images/background.jpg");
+  /* background-image: url("./images/background.jpg"); */
+  background-image: url("./images/background3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App {

@@ -15,7 +15,7 @@ const NavigationBar = () => {
       padding="6px"
     >
       <Button
-        backgroundColor={colorMode === "light" ? "purple.500" : "cyan.700"}
+        backgroundColor={colorMode === "light" ? "#6e3c65" : "cyan.700"}
         color="white"
         leftIcon={colorMode === "light" ? "moon" : FaHeart}
         size="sm"
@@ -35,7 +35,7 @@ const NavigationBar = () => {
         {colorMode === "light" ? "Dark" : "Pink"} Mode
       </Button>
       <IconButton
-        backgroundColor={colorMode === "light" ? "pink.500" : "gray.500"}
+        backgroundColor={colorMode === "light" ? "#535e49" : "gray.500"}
         color="white"
         icon={GoMarkGithub}
         size="sm"

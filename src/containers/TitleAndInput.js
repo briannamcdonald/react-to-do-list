@@ -8,7 +8,7 @@ const TitleAndInput = (props) => {
   const { colorMode } = useColorMode();
   const buttonColorModeStyling = {
     light: {
-      backgroundColor: "pink.500",
+      backgroundColor: "#b06f8d",
       _hover: { backgroundColor: "pink.600" },
       _active: { backgroundColor: "pink.300" },
       _focus: { boxShadow: "0 0 0 2px #D6BCFA" },
@@ -65,7 +65,7 @@ const TitleAndInput = (props) => {
           borderWidth: "1px",
           margin: "8px",
           marginBottom: "10px",
-          borderColor: colorMode === "light" ? "#FBB6CE" : "#4A5568",
+          borderColor: colorMode === "light" ? "#f8bbd0" : "#4A5568",
         }}
       />
     </div>

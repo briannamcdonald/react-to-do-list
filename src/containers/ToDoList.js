@@ -22,7 +22,7 @@ const ToDoList = (props) => {
 
   const { colorMode } = useColorMode();
   const backgroundStyling = {
-    backgroundColor: colorMode === "light" ? "#FFFACD" : "#1A202C",
+    backgroundColor: colorMode === "light" ? "#F9E1E6" : "#1A202C",
     width: "45%",
     height: "100%",
     borderRadius: "8px",
@@ -31,7 +31,7 @@ const ToDoList = (props) => {
     top: "50%",
     transform: "translate(-50%, -50%)",
     margin: "8px 0",
-    border: colorMode === "light" ? "4px solid #FBB6CE" : "4px solid #4A5568",
+    border: colorMode === "light" ? "4px solid #f8bbd0" : "4px solid #4A5568",
   };
 
   return (

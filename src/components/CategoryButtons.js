@@ -17,8 +17,8 @@ const divStyling = {
 
 const CategoryButtons = (props) => {
   const { colorMode } = useColorMode();
-  const bgColor = { light: "pink.500", dark: "gray.600" };
-  const selectedBgColor = { light: "purple.500", dark: "cyan.700" };
+  const bgColor = { light: "#b06f8d", dark: "gray.600" };
+  const selectedBgColor = { light: "#6e3c65", dark: "cyan.700" };
   const hoverColor = { light: "pink.600", dark: "gray.700" };
   const selectedHoverColor = { light: "purple.600", dark: "cyan.800" };
   const activeColor = { light: "pink.300", dark: "gray.400" };
