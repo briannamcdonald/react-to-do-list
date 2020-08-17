@@ -9,22 +9,22 @@ const ListItem = (props) => {
   const backgroundStyling = {
     display: "flex",
     flexDirection: "row",
-    background: colorMode === "light" ? "pink" : "#4A5568",
+    background: colorMode === "light" ? "#f8bbd0" : "#4A5568",
     width: "100%",
     justifyContent: "space-around",
-    border: colorMode === "light" ? "2px solid #FBB6CE" : "2px solid #718096",
+    border: colorMode === "light" ? "2px solid #e6aec1" : "2px solid #718096",
     borderRadius: "6px",
     boxShadow:
-      colorMode === "light" ? "2px 2px 2px #F687B3" : "2px 2px 2px #A0AEC0",
+      colorMode === "light" ? "2px 2px 2px #cd82a4" : "2px 2px 2px #A0AEC0",
     margin: "4px",
   };
 
   const buttonColorModeStyling = {
     light: {
-      backgroundColor: "pink.500",
-      _hover: { backgroundColor: "pink.600" },
-      _active: { backgroundColor: "pink.300" },
-      _focus: { boxShadow: "0 0 0 2px #D6BCFA" },
+      backgroundColor: "leafGreen.500",
+      _hover: { backgroundColor: "leafGreen.600" },
+      _active: { backgroundColor: "leafGreen.300" },
+      _focus: { boxShadow: "0 0 0 2px #989e92" },
     },
     dark: {
       backgroundColor: "cyan.600",
@@ -37,14 +37,14 @@ const ListItem = (props) => {
   return (
     <div style={{ ...backgroundStyling }}>
       <Checkbox
-        variantColor={colorMode === "light" ? "pink" : "cyan"}
-        borderColor={colorMode === "light" ? "pink.500" : "cyan.600"}
+        variantColor={colorMode === "light" ? "leafGreen" : "cyan"}
+        borderColor={colorMode === "light" ? "leafGreen.500" : "cyan.600"}
+        color="white"
         size="lg"
         margin="6px auto 6px 20px"
         paddingRight="6px"
         isChecked={props.done}
         onChange={() => props.onClickCheckbox(props.id)}
-        // onFocus={() => boxShadow="0 0 0 3px #D6BCFA"}
       ></Checkbox>
       <Text
         color={colorMode === "light" ? "gray.800" : "white"}

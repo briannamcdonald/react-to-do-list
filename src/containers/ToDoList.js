@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Text, Flex, useColorMode } from "@chakra-ui/core";
 import { connect } from "react-redux";
 
@@ -22,7 +22,7 @@ const ToDoList = (props) => {
 
   const { colorMode } = useColorMode();
   const backgroundStyling = {
-    backgroundColor: colorMode === "light" ? "#FFFACD" : "#1A202C",
+    backgroundColor: colorMode === "light" ? "#f9e1e6" : "#1A202C",
     width: "45%",
     height: "100%",
     borderRadius: "8px",
@@ -31,7 +31,7 @@ const ToDoList = (props) => {
     top: "50%",
     transform: "translate(-50%, -50%)",
     margin: "8px 0",
-    border: colorMode === "light" ? "4px solid #FBB6CE" : "4px solid #4A5568",
+    border: colorMode === "light" ? "4px solid #f8bbd0" : "4px solid #4A5568",
   };
 
   return (

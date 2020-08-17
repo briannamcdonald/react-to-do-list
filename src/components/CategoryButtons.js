@@ -17,12 +17,12 @@ const divStyling = {
 
 const CategoryButtons = (props) => {
   const { colorMode } = useColorMode();
-  const bgColor = { light: "pink.500", dark: "gray.600" };
-  const selectedBgColor = { light: "purple.500", dark: "cyan.700" };
-  const hoverColor = { light: "pink.600", dark: "gray.700" };
-  const selectedHoverColor = { light: "purple.600", dark: "cyan.800" };
-  const activeColor = { light: "pink.300", dark: "gray.400" };
-  const selectedActiveColor = { light: "purple.300", dark: "cyan.500" };
+  const bgColor = { light: "mauve.500", dark: "gray.600" };
+  const selectedBgColor = { light: "violet.500", dark: "cyan.700" };
+  const hoverColor = { light: "mauve.600", dark: "gray.700" };
+  const selectedHoverColor = { light: "violet.600", dark: "cyan.800" };
+  const activeColor = { light: "mauve.300", dark: "gray.400" };
+  const selectedActiveColor = { light: "violet.300", dark: "cyan.500" };
 
   return (
     <div style={{ ...divStyling }}>
@@ -49,7 +49,10 @@ const CategoryButtons = (props) => {
               ? selectedActiveColor[colorMode]
               : activeColor[colorMode],
         }}
-        _focus={{ boxShadow: "0 0 0 2px #D6BCFA" }}
+        _focus={{
+          boxShadow:
+            colorMode === "light" ? "0 0 0 2px #a88aa3" : "0 0 0 2px #00A3C4",
+        }}
       >
         To Do
       </Button>
@@ -76,7 +79,10 @@ const CategoryButtons = (props) => {
               ? selectedActiveColor[colorMode]
               : activeColor[colorMode],
         }}
-        _focus={{ boxShadow: "0 0 0 2px #D6BCFA" }}
+        _focus={{
+          boxShadow:
+            colorMode === "light" ? "0 0 0 2px #a88aa3" : "0 0 0 2px #00A3C4",
+        }}
       >
         Done
       </Button>
@@ -103,7 +109,10 @@ const CategoryButtons = (props) => {
               ? selectedActiveColor[colorMode]
               : activeColor[colorMode],
         }}
-        _focus={{ boxShadow: "0 0 0 2px #D6BCFA" }}
+        _focus={{
+          boxShadow:
+            colorMode === "light" ? "0 0 0 2px #a88aa3" : "0 0 0 2px #00A3C4",
+        }}
       >
         All Tasks
       </Button>
