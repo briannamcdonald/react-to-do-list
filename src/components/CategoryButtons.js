@@ -1,19 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button, useColorMode } from "@chakra-ui/core";
+import { Button, Flex, useColorMode } from "@chakra-ui/core";
 import { FaListUl } from "react-icons/fa";
 
 import * as actionTypes from "./../store/actions";
-
-const divStyling = {
-  display: "flex",
-  flexDirection: "row",
-  width: "100%",
-  margin: "2px auto 6px auto",
-  justifyContent: "center",
-  position: "relative",
-  left: "4px",
-};
 
 const CategoryButtons = (props) => {
   const { colorMode } = useColorMode();
@@ -25,7 +15,14 @@ const CategoryButtons = (props) => {
   const selectedActiveColor = { light: "violet.300", dark: "cyan.500" };
 
   return (
-    <div style={{ ...divStyling }}>
+    <Flex
+      flexDirection="row"
+      width="100%"
+      margin="2px auto 6px auto"
+      justifyContent="center"
+      position="relative"
+      left="4px"
+    >
       <Button
         backgroundColor={
           props.currentCol === "to do"
@@ -116,7 +113,7 @@ const CategoryButtons = (props) => {
       >
         All Tasks
       </Button>
-    </div>
+    </Flex>
   );
 };
 

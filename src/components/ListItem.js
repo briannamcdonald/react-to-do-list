@@ -1,23 +1,17 @@
 import React from "react";
-import { Checkbox, Text, IconButton, useColorMode } from "@chakra-ui/core";
+import {
+  Checkbox,
+  Text,
+  IconButton,
+  useColorMode,
+  Flex,
+} from "@chakra-ui/core";
 import { connect } from "react-redux";
 
 import * as actionTypes from "./../store/actions";
 
 const ListItem = (props) => {
   const { colorMode } = useColorMode();
-  const backgroundStyling = {
-    display: "flex",
-    flexDirection: "row",
-    background: colorMode === "light" ? "#f8bbd0" : "#4A5568",
-    width: "100%",
-    justifyContent: "space-around",
-    border: colorMode === "light" ? "2px solid #e6aec1" : "2px solid #718096",
-    borderRadius: "6px",
-    boxShadow:
-      colorMode === "light" ? "2px 2px 2px #cd82a4" : "2px 2px 2px #A0AEC0",
-    margin: "4px",
-  };
 
   const buttonColorModeStyling = {
     light: {
@@ -35,13 +29,25 @@ const ListItem = (props) => {
   };
 
   return (
-    <div style={{ ...backgroundStyling }}>
+    <Flex
+      flexDirection="row"
+      background={colorMode === "light" ? "#f8bbd0" : "#4A5568"}
+      width="100%"
+      justifyContent="space-around"
+      alignItems="center"
+      border={colorMode === "light" ? "2px solid #e6aec1" : "2px solid #718096"}
+      borderRadius="6px"
+      boxShadow={
+        colorMode === "light" ? "2px 2px 2px #cd82a4" : "2px 2px 2px #A0AEC0"
+      }
+      margin="4px"
+    >
       <Checkbox
         variantColor={colorMode === "light" ? "leafGreen" : "cyan"}
         borderColor={colorMode === "light" ? "leafGreen.500" : "cyan.600"}
         color="white"
         size="lg"
-        margin="6px auto 6px 20px"
+        margin="6px 6px 6px 20px"
         paddingRight="6px"
         isChecked={props.done}
         onChange={() => props.onClickCheckbox(props.id)}
@@ -60,11 +66,11 @@ const ListItem = (props) => {
         size="xs"
         aria-label="Delete item"
         icon="delete"
-        margin="6px 20px 6px auto"
+        margin="6px 20px 6px 11px"
         onClick={() => props.onDeleteTask(props.id)}
         {...buttonColorModeStyling[colorMode]}
       />
-    </div>
+    </Flex>
   );
 };
 

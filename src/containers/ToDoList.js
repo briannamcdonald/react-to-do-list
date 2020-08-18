@@ -24,13 +24,13 @@ const ToDoList = (props) => {
   const backgroundStyling = {
     backgroundColor: colorMode === "light" ? "#f9e1e6" : "#1A202C",
     width: "45%",
-    height: "100%",
+    height: "calc(100% - 8px)",
     borderRadius: "8px",
     position: "absolute",
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
-    margin: "8px 0",
+    overflowY: "auto",
     border: colorMode === "light" ? "4px solid #f8bbd0" : "4px solid #4A5568",
   };
 
@@ -46,7 +46,14 @@ const ToDoList = (props) => {
               display: props.allList.length === 0 ? "block" : "none",
             }}
           >
-            <Flex height="55vh" justifyContent="center" alignItems="center">
+            <Flex
+              height="100%"
+              position="relative"
+              left="4px"
+              top="25vh"
+              justifyContent="center"
+              alignItems="center"
+            >
               <Text
                 color={colorMode === "light" ? "gray.700" : "gray.100"}
                 fontSize="xl"
