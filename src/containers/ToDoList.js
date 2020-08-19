@@ -26,6 +26,7 @@ const ToDoList = (props) => {
     <div>
       <NavigationBar />
       <Flex
+        className="scrollable-div"
         flexDirection="column"
         width={["100%", "80%", "60%", "45%"]}
         height={[
@@ -39,7 +40,7 @@ const ToDoList = (props) => {
         left={["0", "50%"]}
         top={["40px", "50%"]}
         transform={["none", "translate(-50%, -50%)"]}
-        overflowY="auto"
+        overflowY="scroll"
         backgroundColor={colorMode === "light" ? "#f9e1e6" : "#1A202C"}
         border={
           colorMode === "light" ? "4px solid #f8bbd0" : "4px solid #4A5568"
