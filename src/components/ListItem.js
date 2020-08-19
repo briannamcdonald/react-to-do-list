@@ -69,6 +69,9 @@ const ListItem = (props) => {
         padding={["7px", "0"]}
         aria-label="Delete item"
         icon="delete"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
         margin={["2px 12px 2px 6px", "6px 20px 6px 11px"]}
         onClick={() => props.onDeleteTask(props.id)}
         {...buttonColorModeStyling[colorMode]}
