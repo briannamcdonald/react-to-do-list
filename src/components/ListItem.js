@@ -66,7 +66,6 @@ const ListItem = (props) => {
       <IconButton
         color="white"
         size="xs"
-        padding={["7px", "0"]}
         aria-label="Delete item"
         icon="delete"
         display="flex"

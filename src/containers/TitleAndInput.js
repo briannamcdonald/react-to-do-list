@@ -47,7 +47,6 @@ const TitleAndInput = (props) => {
           color="gray.700"
           focusBorderColor={colorMode === "light" ? "violet.300" : "cyan.700"}
           margin="8px 1px"
-          paddingY={["24px", "0"]}
           fontSize={["xl", "lg", "lg", "md"]}
           position="relative"
           left="4px"
@@ -61,13 +60,9 @@ const TitleAndInput = (props) => {
         <Button
           color="white"
           margin="8px 1px"
-          paddingY={["25px", "15px", "10px", "0"]}
           fontSize={["xl", "lg", "lg", "md"]}
           position="relative"
           left="4px"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
           onClick={props.onAddTask}
           {...buttonColorModeStyling[colorMode]}
         >
