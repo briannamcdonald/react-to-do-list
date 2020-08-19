@@ -10,12 +10,18 @@ const NavigationBar = () => {
     <Flex
       flexDirection="row"
       backgroundColor={[
-        colorMode === "light" ? "cottonCandyPink.500" : "gray.600",
+        colorMode === "light" ? "cottonCandyPink.500" : "transparent",
         "transparent",
       ]}
+      border="4px solid"
+      borderColor={[
+        colorMode === "light" ? "transparent" : "gray.600",
+        "transparent",
+      ]}
+      borderBottomColor="transparent"
       textAlign="right"
       width="100%"
-      padding="6px"
+      padding={["2px", "6px"]}
       position="relative"
       zIndex="999"
     >

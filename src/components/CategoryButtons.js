@@ -31,7 +31,7 @@ const CategoryButtons = (props) => {
         }
         color="white"
         width="33%"
-        margin="2px"
+        margin={["2px 1px", "2px"]}
         paddingY={["25px", "0"]}
         fontSize={["xl", "md"]}
         leftIcon="calendar"
@@ -63,7 +63,7 @@ const CategoryButtons = (props) => {
         }
         color="white"
         width="33%"
-        margin="2px"
+        margin={["2px 1px", "2px"]}
         paddingY={["25px", "0"]}
         fontSize={["xl", "md"]}
         leftIcon="check-circle"
@@ -95,7 +95,7 @@ const CategoryButtons = (props) => {
         }
         color="white"
         width="33%"
-        margin="2px"
+        margin={["2px 1px", "2px"]}
         paddingY={["25px", "0"]}
         fontSize={["xl", "md"]}
         leftIcon={FaListUl}

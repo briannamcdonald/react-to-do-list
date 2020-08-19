@@ -28,8 +28,8 @@ const ToDoList = (props) => {
       <Flex
         flexDirection="column"
         width={["100%", "80%", "60%", "45%"]}
-        height={["calc(100% - 39px)", "calc(100% - 8px)"]}
-        borderRadius="8px"
+        height={["calc(100% - 40px)", "calc(100% - 8px)"]}
+        borderRadius={["0", "8px"]}
         position="absolute"
         left={["0", "50%"]}
         top={["40px", "50%"]}
