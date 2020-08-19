@@ -1,19 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button, useColorMode } from "@chakra-ui/core";
+import { Button, Flex, useColorMode } from "@chakra-ui/core";
 import { FaListUl } from "react-icons/fa";
 
 import * as actionTypes from "./../store/actions";
-
-const divStyling = {
-  display: "flex",
-  flexDirection: "row",
-  width: "100%",
-  margin: "2px auto 6px auto",
-  justifyContent: "center",
-  position: "relative",
-  left: "4px",
-};
 
 const CategoryButtons = (props) => {
   const { colorMode } = useColorMode();
@@ -25,7 +15,14 @@ const CategoryButtons = (props) => {
   const selectedActiveColor = { light: "violet.300", dark: "cyan.500" };
 
   return (
-    <div style={{ ...divStyling }}>
+    <Flex
+      flexDirection="row"
+      width="100%"
+      margin="2px auto 6px auto"
+      justifyContent="center"
+      position="relative"
+      left={["0", "4px"]}
+    >
       <Button
         backgroundColor={
           props.currentCol === "to do"
@@ -34,7 +31,9 @@ const CategoryButtons = (props) => {
         }
         color="white"
         width="33%"
-        margin="2px"
+        margin={["2px 1px", "2px"]}
+        paddingY={["25px", "15px", "10px", "0"]}
+        fontSize={["xl", "lg", "lg", "md"]}
         leftIcon="calendar"
         onClick={props.onClickToDo}
         _hover={{
@@ -64,7 +63,9 @@ const CategoryButtons = (props) => {
         }
         color="white"
         width="33%"
-        margin="2px"
+        margin={["2px 1px", "2px"]}
+        paddingY={["25px", "15px", "10px", "0"]}
+        fontSize={["xl", "lg", "lg", "md"]}
         leftIcon="check-circle"
         onClick={props.onClickDone}
         _hover={{
@@ -94,7 +95,9 @@ const CategoryButtons = (props) => {
         }
         color="white"
         width="33%"
-        margin="2px"
+        margin={["2px 1px", "2px"]}
+        paddingY={["25px", "15px", "10px", "0"]}
+        fontSize={["xl", "lg", "lg", "md"]}
         leftIcon={FaListUl}
         onClick={props.onClickAll}
         _hover={{
@@ -116,7 +119,7 @@ const CategoryButtons = (props) => {
       >
         All Tasks
       </Button>
-    </div>
+    </Flex>
   );
 };
 
