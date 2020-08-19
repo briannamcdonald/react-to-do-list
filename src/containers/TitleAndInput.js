@@ -65,6 +65,9 @@ const TitleAndInput = (props) => {
           fontSize={["xl", "lg", "lg", "md"]}
           position="relative"
           left="4px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
           onClick={props.onAddTask}
           {...buttonColorModeStyling[colorMode]}
         >
