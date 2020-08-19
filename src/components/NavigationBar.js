@@ -9,10 +9,15 @@ const NavigationBar = () => {
   return (
     <Flex
       flexDirection="row"
+      backgroundColor={[
+        colorMode === "light" ? "cottonCandyPink.500" : "gray.600",
+        "transparent",
+      ]}
       textAlign="right"
-      backgroundColor="transparent"
       width="100%"
       padding="6px"
+      position="relative"
+      zIndex="999"
     >
       <Button
         backgroundColor={colorMode === "light" ? "violet.500" : "cyan.700"}
@@ -20,6 +25,7 @@ const NavigationBar = () => {
         leftIcon={colorMode === "light" ? "moon" : FaHeart}
         size="sm"
         marginLeft="auto"
+        zIndex="999"
         onClick={toggleColorMode}
         _hover={{
           backgroundColor: colorMode === "light" ? "violet.600" : "cyan.800",
@@ -40,6 +46,7 @@ const NavigationBar = () => {
         icon={GoMarkGithub}
         size="sm"
         marginLeft="6px"
+        zIndex="999"
         onClick={() =>
           window.open("https://github.com/briannamcdonald/react-to-do-list")
         }

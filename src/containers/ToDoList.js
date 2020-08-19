@@ -9,7 +9,7 @@ import TitleAndInput from "./TitleAndInput";
 
 const ToDoList = (props) => {
   /*  Checks if visibleList is undefined and if so, maps from the allList instead. 
-        This is done to avoid errors when the app first starts up.  */
+      This is done to avoid errors when the app first starts up.  */
   const getList = () => {
     let list = [];
     if (!props.visibleList) {
@@ -21,25 +21,31 @@ const ToDoList = (props) => {
   };
 
   const { colorMode } = useColorMode();
-  const backgroundStyling = {
-    backgroundColor: colorMode === "light" ? "#f9e1e6" : "#1A202C",
-    width: "45%",
-    height: "calc(100% - 8px)",
-    borderRadius: "8px",
-    position: "absolute",
-    left: "50%",
-    top: "50%",
-    transform: "translate(-50%, -50%)",
-    overflowY: "auto",
-    border: colorMode === "light" ? "4px solid #f8bbd0" : "4px solid #4A5568",
-  };
 
   return (
     <div>
       <NavigationBar />
-      <div style={{ ...backgroundStyling }}>
+      <Flex
+        flexDirection="column"
+        width={["100%", "80%", "60%", "45%"]}
+        height={["calc(100% - 39px)", "calc(100% - 8px)"]}
+        borderRadius="8px"
+        position="absolute"
+        left={["0", "50%"]}
+        top={["40px", "50%"]}
+        transform={["none", "translate(-50%, -50%)"]}
+        overflowY="auto"
+        backgroundColor={colorMode === "light" ? "#f9e1e6" : "#1A202C"}
+        border={
+          colorMode === "light" ? "4px solid #f8bbd0" : "4px solid #4A5568"
+        }
+      >
         <TitleAndInput />
-        <Flex flexDirection="column" width="85%" margin="0 auto">
+        <Flex
+          flexDirection="column"
+          width={["calc(100% - 14px)", "85%"]}
+          margin="0 auto"
+        >
           <CategoryButtons />
           <div
             style={{
@@ -56,7 +62,7 @@ const ToDoList = (props) => {
             >
               <Text
                 color={colorMode === "light" ? "gray.700" : "gray.100"}
-                fontSize="xl"
+                fontSize={["2xl", "xl"]}
                 fontFamily="Trebuchet MS"
               >
                 Start adding tasks!
@@ -72,7 +78,7 @@ const ToDoList = (props) => {
             />
           ))}
         </Flex>
-      </div>
+      </Flex>
     </div>
   );
 };

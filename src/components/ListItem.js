@@ -35,6 +35,8 @@ const ListItem = (props) => {
       width="100%"
       justifyContent="space-around"
       alignItems="center"
+      position="relative"
+      right="4px"
       border={colorMode === "light" ? "2px solid #e6aec1" : "2px solid #718096"}
       borderRadius="6px"
       boxShadow={
@@ -54,7 +56,7 @@ const ListItem = (props) => {
       ></Checkbox>
       <Text
         color={colorMode === "light" ? "gray.800" : "white"}
-        fontSize="lg"
+        fontSize={["2xl", "lg"]}
         fontFamily="Trebuchet MS"
         margin="6px auto"
         overflowWrap="break-word"
@@ -64,9 +66,10 @@ const ListItem = (props) => {
       <IconButton
         color="white"
         size="xs"
+        padding={["7px", "0"]}
         aria-label="Delete item"
         icon="delete"
-        margin="6px 20px 6px 11px"
+        margin={["2px 12px 2px 6px", "6px 20px 6px 11px"]}
         onClick={() => props.onDeleteTask(props.id)}
         {...buttonColorModeStyling[colorMode]}
       />

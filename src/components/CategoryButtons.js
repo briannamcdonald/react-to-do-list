@@ -21,7 +21,7 @@ const CategoryButtons = (props) => {
       margin="2px auto 6px auto"
       justifyContent="center"
       position="relative"
-      left="4px"
+      left={["0", "4px"]}
     >
       <Button
         backgroundColor={
@@ -32,6 +32,8 @@ const CategoryButtons = (props) => {
         color="white"
         width="33%"
         margin="2px"
+        paddingY={["25px", "0"]}
+        fontSize={["xl", "md"]}
         leftIcon="calendar"
         onClick={props.onClickToDo}
         _hover={{
@@ -62,6 +64,8 @@ const CategoryButtons = (props) => {
         color="white"
         width="33%"
         margin="2px"
+        paddingY={["25px", "0"]}
+        fontSize={["xl", "md"]}
         leftIcon="check-circle"
         onClick={props.onClickDone}
         _hover={{
@@ -92,6 +96,8 @@ const CategoryButtons = (props) => {
         color="white"
         width="33%"
         margin="2px"
+        paddingY={["25px", "0"]}
+        fontSize={["xl", "md"]}
         leftIcon={FaListUl}
         onClick={props.onClickAll}
         _hover={{
