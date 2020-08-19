@@ -56,7 +56,7 @@ const ListItem = (props) => {
       ></Checkbox>
       <Text
         color={colorMode === "light" ? "gray.800" : "white"}
-        fontSize={["2xl", "lg"]}
+        fontSize={["2xl", "xl", "xl", "lg"]}
         fontFamily="Trebuchet MS"
         margin="6px auto"
         overflowWrap="break-word"

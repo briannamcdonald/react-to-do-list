@@ -28,7 +28,12 @@ const ToDoList = (props) => {
       <Flex
         flexDirection="column"
         width={["100%", "80%", "60%", "45%"]}
-        height={["calc(100% - 40px)", "calc(100% - 8px)"]}
+        height={[
+          "calc(100% - 40px)",
+          "calc(100% - 30px)",
+          "calc(100% - 20px)",
+          "calc(100% - 8px)",
+        ]}
         borderRadius={["0", "8px"]}
         position="absolute"
         left={["0", "50%"]}
@@ -62,7 +67,7 @@ const ToDoList = (props) => {
             >
               <Text
                 color={colorMode === "light" ? "gray.700" : "gray.100"}
-                fontSize={["2xl", "xl"]}
+                fontSize={["2xl", "2xl", "2xl", "xl"]}
                 fontFamily="Trebuchet MS"
               >
                 Start adding tasks!

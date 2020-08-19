@@ -32,8 +32,8 @@ const CategoryButtons = (props) => {
         color="white"
         width="33%"
         margin={["2px 1px", "2px"]}
-        paddingY={["25px", "0"]}
-        fontSize={["xl", "md"]}
+        paddingY={["25px", "15px", "10px", "0"]}
+        fontSize={["xl", "lg", "lg", "md"]}
         leftIcon="calendar"
         onClick={props.onClickToDo}
         _hover={{
@@ -64,8 +64,8 @@ const CategoryButtons = (props) => {
         color="white"
         width="33%"
         margin={["2px 1px", "2px"]}
-        paddingY={["25px", "0"]}
-        fontSize={["xl", "md"]}
+        paddingY={["25px", "15px", "10px", "0"]}
+        fontSize={["xl", "lg", "lg", "md"]}
         leftIcon="check-circle"
         onClick={props.onClickDone}
         _hover={{
@@ -96,8 +96,8 @@ const CategoryButtons = (props) => {
         color="white"
         width="33%"
         margin={["2px 1px", "2px"]}
-        paddingY={["25px", "0"]}
-        fontSize={["xl", "md"]}
+        paddingY={["25px", "15px", "10px", "0"]}
+        fontSize={["xl", "lg", "lg", "md"]}
         leftIcon={FaListUl}
         onClick={props.onClickAll}
         _hover={{

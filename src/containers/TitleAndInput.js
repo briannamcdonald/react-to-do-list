@@ -26,7 +26,7 @@ const TitleAndInput = (props) => {
       <b>
         <Text
           color={colorMode === "light" ? "gray.700" : "gray.100"}
-          fontSize={["4xl", "3xl"]}
+          fontSize={["4xl", "4xl", "4xl", "3xl"]}
           fontFamily="Trebuchet MS"
           margin="8px"
         >
@@ -48,21 +48,21 @@ const TitleAndInput = (props) => {
           focusBorderColor={colorMode === "light" ? "violet.300" : "cyan.700"}
           margin="8px 1px"
           paddingY={["24px", "0"]}
-          fontSize={["xl", "md"]}
+          fontSize={["xl", "lg", "lg", "md"]}
           position="relative"
           left="4px"
           value={props.newText}
           onChange={(event) => props.onEnterNewTaskText(event.target.value)}
           _placeholder={{
             color: colorMode === "light" ? "gray.400" : "gray.500",
-            fontSize: ["xl", "md"],
+            fontSize: ["xl", "lg", "lg", "md"],
           }}
         />
         <Button
           color="white"
           margin="8px 1px"
-          paddingY={["25px", "0"]}
-          fontSize={["xl", "md"]}
+          paddingY={["25px", "15px", "10px", "0"]}
+          fontSize={["xl", "lg", "lg", "md"]}
           position="relative"
           left="4px"
           onClick={props.onAddTask}
