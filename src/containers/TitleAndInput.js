@@ -21,6 +21,12 @@ const TitleAndInput = (props) => {
     },
   };
 
+  const onKeyPress = (e) => {
+    if (e.which === 13) {
+      props.onAddTask();
+    }
+  };
+
   return (
     <div>
       <b>
@@ -52,6 +58,7 @@ const TitleAndInput = (props) => {
           left="4px"
           value={props.newText}
           onChange={(event) => props.onEnterNewTaskText(event.target.value)}
+          onKeyPress={onKeyPress}
           _placeholder={{
             color: colorMode === "light" ? "gray.400" : "gray.500",
             fontSize: ["xl", "lg", "lg", "md"],
