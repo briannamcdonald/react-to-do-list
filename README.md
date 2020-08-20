@@ -9,6 +9,8 @@ A to-do list application made using Reactjs, Redux, and Chakra UI.
 # Demo
 **Try it here:** https://briannamcdonald.github.io/react-to-do-list/
 
+![To-do List Demo GIF](demo/ToDoList.gif)
+
 # Usage
 To run the project locally in development mode:
 * Clone the repo with `git clone https://github.com/briannamcdonald/react-to-do-list.git`
