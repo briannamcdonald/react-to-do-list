@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.ADD_TASK:
       // add it to the allTaskList
       if (state.newTaskText === undefined || state.newTaskText.length === 0) {
-        break;
+        //do nothing
       } else {
         const newAllTaskList = state.allTaskList.concat({
           key: new Date() + state.newTaskText,
