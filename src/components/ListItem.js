@@ -59,6 +59,7 @@ const ListItem = (props) => {
         fontSize={["2xl", "xl", "xl", "lg"]}
         fontFamily="Trebuchet MS"
         margin="6px auto"
+        maxWidth={["70%", "80%"]}
         overflowWrap="break-word"
       >
         {props.text}

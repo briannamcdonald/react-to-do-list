@@ -16,31 +16,34 @@ const reducer = (state = initialState, action) => {
       };
     case actionTypes.ADD_TASK:
       // add it to the allTaskList
-      const newAllTaskList = state.allTaskList.concat({
-        key: new Date() + state.newTaskText,
-        id: new Date(),
-        text: state.newTaskText,
-        done: false,
-      });
-      // find out which column is currently visible and update visibleTaskList accordingly
-      let newVisTaskList = [];
-      console.log(newAllTaskList);
-      if (state.currentColumn === "all") {
-        newVisTaskList = newAllTaskList;
-      } else if (state.currentColumn === "to do") {
-        newVisTaskList = newAllTaskList.filter((task) => !task.done);
-      } else if (state.currentColumn === "done") {
-        newVisTaskList = newAllTaskList.filter((task) => task.done);
+      if (state.newTaskText === undefined || state.newTaskText.length === 0) {
+        break;
       } else {
-        newVisTaskList = newAllTaskList;
-      }
+        const newAllTaskList = state.allTaskList.concat({
+          key: new Date() + state.newTaskText,
+          id: new Date(),
+          text: state.newTaskText,
+          done: false,
+        });
+        // find out which column is currently visible and update visibleTaskList accordingly
+        let newVisTaskList = [];
+        if (state.currentColumn === "all") {
+          newVisTaskList = newAllTaskList;
+        } else if (state.currentColumn === "to do") {
+          newVisTaskList = newAllTaskList.filter((task) => !task.done);
+        } else if (state.currentColumn === "done") {
+          newVisTaskList = newAllTaskList.filter((task) => task.done);
+        } else {
+          newVisTaskList = newAllTaskList;
+        }
 
-      return {
-        ...state,
-        newTaskText: "",
-        allTaskList: newAllTaskList,
-        visibleTaskList: newVisTaskList,
-      };
+        return {
+          ...state,
+          newTaskText: "",
+          allTaskList: newAllTaskList,
+          visibleTaskList: newVisTaskList,
+        };
+      }
     case actionTypes.DELETE_TASK:
       // remove it from the allTaskList
       const updatedTaskList = state.allTaskList.filter(
