@@ -20,8 +20,8 @@ const reducer = (state = initialState, action) => {
         //do nothing
       } else {
         const newAllTaskList = state.allTaskList.concat({
-          key: new Date() + state.newTaskText,
-          id: new Date(),
+          key: new Date() + state.newTaskText + Math.random(),
+          id: new Date() + state.newTaskText + Math.random(),
           text: state.newTaskText,
           done: false,
         });
