@@ -7,7 +7,7 @@ A to-do list application made using Reactjs, Redux, and Chakra UI.
 * A dark mode and a pink mode (light mode).
 
 # Demo
-**Live demo here:** [briannamcdonald.me/react-to-do-list] (https://briannamcdonald.me/react-to-do-list/)
+**Live demo here:** [briannamcdonald.me/react-to-do-list](https://briannamcdonald.me/react-to-do-list/)
 
 ![To-do List Demo GIF](demo/ToDoList.gif)
 
